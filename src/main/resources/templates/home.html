@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <h2>All Courses</h2>
+    <ul class="list-group">
+        <li class="list-group-item" th:each="course : ${listcourse}" th:text="${course.getStartDate()} + ' - ' + ${course.getLectureName()} + ', ' + ${course.getPlace()}"></li>
+    </ul>
+    <h2 class="mt-4">Upcoming Courses</h2>
+    <ul class="list-group">
+        <li class="list-group-item" th:each="course : ${upcomingCourses}" th:text="${course.getStartDate()} + ' - ' + ${course.getLectureName()} + ', ' + ${course.getPlace()}"></li>
+    </ul>
+</div>
+</body>
+</html>
